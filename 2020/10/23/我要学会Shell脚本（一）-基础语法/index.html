@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="Everthing will going to be all right.">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    我要学会Shell脚本（一）---基础语法 |
+    
+    徐昊的博客园-🛴</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-我要学会Shell脚本（一）-基础语法" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      我要学会Shell脚本（一）---基础语法
+    </h1>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/2020/10/23/%E6%88%91%E8%A6%81%E5%AD%A6%E4%BC%9AShell%E8%84%9A%E6%9C%AC%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time datetime="2020-10-23T07:37:52.000Z" itemprop="datePublished">2020-10-23</time>
+</a>
+                            
+                    </div>
+                    
+
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <p>同行的小伙伴都会shell脚本，就我不会！！！我也要开心的耍起来呀！！！</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603451068337&di=f4cd4aee9ab78921adb12019d3b3ee16&imgtype=0&src=http://pic1.zhimg.com/v2-9e439e6efde0c32fac39ee7e870eacb8_b.gif" alt="关系运算符"></p>
+<a id="more"></a>
+
+<h1 id="基础语法笔记："><a href="#基础语法笔记：" class="headerlink" title="基础语法笔记："></a>基础语法笔记：</h1><p>1、在编辑shell脚本时 先编写 ：  $ #!/bin/bash  ——! 相当于一个约定的标记，它告诉系统脚本需要什么解释器来执行。</p>
+<p>简单例子：</p>
+<blockquote>
+<p>!/bin/bash</p>
+<p>Echo “学习是我快乐”</p>
+</blockquote>
+<p>2、在定义变量名时,等号两边，不能有空格。使用一个定义过的变量名，只需要在变量名前面加美元符号即可。</p>
+<p>简单例子：</p>
+<blockquote>
+<p>!/bin/bash</p>
+<p>You_name=”小明”</p>
+<p>Echo ${your_name}</p>
+</blockquote>
+<p>3、定义只读变量： readonly命令  unset删除变量,不能删除只读变量</p>
+<p>简单例子：</p>
+<blockquote>
+<p>!/bin/bash</p>
+<p>readonly you_name=”小明”</p>
+</blockquote>
+<p>4、字符串拼接：（可以单引号/或双引号）输出时 加井号号可输出 当前字符串的长度</p>
+<blockquote>
+<p>a=”我得名字叫：”</p>
+<p>b=”小明”</p>
+<p>c=’我得名字叫坐：’${b}’’</p>
+<p>echo ${井号c}</p>
+</blockquote>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>Sehll   支持一维数组，不支持多维数组</p>
+<blockquote>
+<p>定义</p>
+</blockquote>
+<blockquote>
+<p>my_list=(1,2,3,4,5,6,7)</p>
+</blockquote>
+<p> echo ${my_list}</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>以  井号 号注释<br>多行注释格式：</p>
+<p>:&lt;&lt;EOF<br>注释内容…<br>注释内容…<br>注释内容…<br>EOF</p>
+<h3 id="脚本传参"><a href="#脚本传参" class="headerlink" title="脚本传参"></a>脚本传参</h3><p>执行脚本时，传递参数，脚本 以 $1 为传递的第一个参数，以此类推，$1、$2、……</p>
+<blockquote>
+<p>echo “传递的第一个参数：$1”</p>
+</blockquote>
+<blockquote>
+<p>echo “传递的第二个参数：$2”</p>
+</blockquote>
+<blockquote>
+<p>echo “传递的第三个参数：$3”</p>
+</blockquote>
+<p>执行： ./ test.sh 1 2 3</p>
+<p><img src="%E8%BF%90%E7%AE%97%E7%AC%A6.jpg" alt="算数运算符"><br><img src="%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6.jpg" alt="关系运算符"><br><img src="1.jpg" alt="布尔运算符"><br>传参说明：<br>参数处理    说明</p>
+<blockquote>
+<p>$    传递到脚本的参数个数</p>
+</blockquote>
+<blockquote>
+<p>$*    以一个单字符串显示所有向脚本传递的参数。<br>    如”$*”用「”」括起来的情况、以”$1 $2 … $n”的形式输出所有参数。</p>
+</blockquote>
+<blockquote>
+<p>$$    脚本运行的当前进程ID号</p>
+</blockquote>
+<blockquote>
+<p>$!    后台运行的最后一个进程的ID号</p>
+</blockquote>
+<blockquote>
+<p>$@    与$*相同，但是使用时加引号，并在引号中返回每个参数。<br>    如”$@”用「”」括起来的情况、以”$1” “$2” … “$n” 的形式输出所有参数。</p>
+</blockquote>
+<blockquote>
+<p>$-    显示Shell使用的当前选项，与set命令功能相同。</p>
+</blockquote>
+<blockquote>
+<p>$?    显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</p>
+</blockquote>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>在bash中不支持数学运算，可以通过其他命令来实现：如awk 和expr<br>Expr 是一款表达式计算工具。两数相加 使用<code>  </code>  包含，表达式和运算符之间要有空格。<br>简单例子：</p>
+<blockquote>
+<p>val=<code>expr 2 + 2</code></p>
+</blockquote>
+<blockquote>
+<p>echo “两数之和为 : $val”</p>
+</blockquote>
+<h3 id="test-命令："><a href="#test-命令：" class="headerlink" title="test 命令："></a>test 命令：</h3><p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。<br>举个例子：</p>
+<blockquote>
+<p>num1=100</p>
+</blockquote>
+<blockquote>
+<p>num2=100</p>
+</blockquote>
+<blockquote>
+<p>if test $[num1] -eq $[num2]</p>
+</blockquote>
+<blockquote>
+<p>then</p>
+</blockquote>
+<blockquote>
+<p>    echo ‘两个数相等！’</p>
+</blockquote>
+<blockquote>
+<p>else</p>
+</blockquote>
+<blockquote>
+<p>    echo ‘两个数不相等！’</p>
+</blockquote>
+<blockquote>
+<p>fi</p>
+</blockquote>
+<p><img src="0.jpg" alt="0"></p>
+<p><img src="3.jpg" alt="3"></p>
+<p><img src="4.jpg" alt="4"></p>
+<h1 id="ps-："><a href="#ps-：" class="headerlink" title="ps ："></a>ps ：</h1><p>在编辑完成后 执行脚本时 ，发现 报错：tesh.sh: line 10: syntax error: unexpected end of file<br>问题原因：windows 下编辑的sh 脚本 格式 是 dos ，在liunx 下运行，要修改成 unix格式。<br>解决办法： vi编辑文件 ，输入 : set ff=unix 回车 保存退出 即可解决！</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603452763098&di=89ca0b3c706ce047b7d6f7277aab5703&imgtype=0&src=http://p0.ssl.qhimgs4.com/t01179ca68cb4c58897.gif" alt="来了！来了！"></p>
+<p>呼<del>~</del>第一篇更新完了，成为技术大佬的路上，又前进了一小步！ <strong>加油！加油！</strong></p>
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://example.com/2020/10/23/%E6%88%91%E8%A6%81%E5%AD%A6%E4%BC%9AShell%E8%84%9A%E6%9C%AC%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" data-id="ckgm1s4x90000mkvv13utesep" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell%E8%84%9A%E6%9C%AC/" rel="tag">shell脚本</a></li></ul>
+
+                                    </footer>
+
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/10/20/%E8%AE%B0%E5%BD%95%E7%BE%8E%E5%A5%BD%E7%94%9F%E6%B4%BB/" class="article-nav-link">
+        <strong class="article-nav-caption">Older</strong>
+        <div class="article-nav-title">记录美好生活-❤</div>
+      </a>
+    
+  </nav>
+
+
+            
+
+                
+                    
+                        
+                            
+
+</article>
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 徐昊的博客园-🛴</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/shark.svg" alt="徐昊的博客园-🛴"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">首页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+
+</body>
+</html>
