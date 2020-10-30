@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Django中信号signals简单使用 |
+    Django中信号signals简单使用-❤ |
     
     徐昊的博客园-🛴</title>
   
@@ -39,7 +39,7 @@
                 
   
     <h1 class="article-title" itemprop="name">
-      Django中信号signals简单使用
+      Django中信号signals简单使用-❤
     </h1>
   
   
@@ -53,7 +53,7 @@
                 
                     <div class="article-meta">
                         <a href="/2020/10/30/Django%E4%B8%AD%E4%BF%A1%E5%8F%B7signals%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-10-30T07:22:16.000Z" itemprop="datePublished">2020-10-30</time>
+  <time datetime="2020-10-30T06:21:31.000Z" itemprop="datePublished">2020-10-30</time>
 </a>
                             
                     </div>
@@ -61,6 +61,8 @@
 
                         
                             
+    <div class="tocbot"></div>
+
 
 
 
@@ -74,7 +76,62 @@
                                             
 
                                                 
-                                                                    
+                                                                    <p><del>暂停十月，所有关于你的回忆，都让它留在十月</del></p>
+<h1 id="！！更新博客咯！！"><a href="#！！更新博客咯！！" class="headerlink" title="！！更新博客咯！！"></a>！！更新博客咯！！</h1><p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=791032506,3193078771&fm=26&gp=0.jpg" alt="来了！来了！"></p>
+<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>在平时的开发过程中，我们会遇到一些特殊的应用场景，如果你想要在执行某种操作之前或者之后你能够得到通知，并对其进行一些你想要的操作时，你就可以用Django中的信号（signals）。Django 提供一个“信号分发器”，允许解耦的应用在框架的其它地方发生操作时会被通知到，也就是说在特定事件发生时，可以发送一个信号去通知所有注册了这个信号的回调，在回调里进行想要的操作处理。</p>
+<a id="more"></a>
+<h3 id="使用方法图例"><a href="#使用方法图例" class="headerlink" title="使用方法图例"></a>使用方法图例</h3><p>下面图例对具体的某个数据表进行监听，在请求前（pre_save）请求后（post_save），来发送信号。<br>@receiver 为连接接收器函数。<br><img src="20180625181926501.jpg" alt="示例"></p>
+<h3 id="一-相关参数表"><a href="#一-相关参数表" class="headerlink" title="一.相关参数表"></a>一.相关参数表</h3><p>Django内置了对数据表，migrate命令，url请求相关（request/response），使用test测试，连接数据库五大类信号。</p>
+<pre><code> 1 Model signals
+
+ 2 pre_init # model执行构造方法前，触发
+
+ 3 post_init# model执行构造方法后，触发
+
+ 4 pre_save # model执行save对象保存前，触发
+
+ 5 post_save# model执行save对象保存前，触发
+
+ 6 pre_delete   # model执行delete对象删除前，触发
+
+ 7 post_delete  # model执行delete对象删除前，触发
+
+ 8 m2m_changed  # model使用多对多字段操作第三张表前后，触发
+
+ 9 class_prepared   # 程序启动时，检测已注册的model类，对每个类，触发
+
+10 
+
+11 Management signals
+
+12 pre_migrate  # 执行migrate前，触发
+
+13 post_migrate # 执行migrate后，触发
+
+14 
+
+15 Request/response signals
+
+16 request_started  # 请求到来前，触发
+
+17 request_finished # 请求结束后，触发
+
+18 got_request_exception# 请求异常后，触发
+
+19 
+
+20 Test signals
+
+21 setting_changed  # 使用test测试修改配置文件，触发
+
+22 template_rendered# 使用test测试渲染模板时，触发
+
+23 
+
+24 Database Wrappers
+
+25 connection_created   # 创建数据库连接时，触发</code></pre>
+
                                                                         
                                     </div>
                                     <footer class="article-footer">
@@ -82,6 +139,8 @@
                                             Share
                                         </a>
                                         
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
                                     </footer>
 
     </div>
