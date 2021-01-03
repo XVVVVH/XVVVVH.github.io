@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Django中信号signals简单使用-❤ |
+    Django中使用Mongodb-❤ |
     
     徐昊的博客园-🛴</title>
   
@@ -31,7 +31,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-Django中信号signals简单使用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-在django中连接mysql和mongodb" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
     <div class="article-inner">
         
@@ -39,7 +39,7 @@
                 
   
     <h1 class="article-title" itemprop="name">
-      Django中信号signals简单使用-❤
+      Django中使用Mongodb-❤
     </h1>
   
   
@@ -52,8 +52,8 @@
 
                 
                     <div class="article-meta">
-                        <a href="/2020/10/30/Django%E4%B8%AD%E4%BF%A1%E5%8F%B7signals%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-10-30T06:21:31.000Z" itemprop="datePublished">2020-10-30</time>
+                        <a href="/2020/12/15/%E5%9C%A8django%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%92%8Cmongodb/" class="article-date">
+  <time datetime="2020-12-15T06:21:31.000Z" itemprop="datePublished">2020-12-15</time>
 </a>
                             
                     </div>
@@ -76,70 +76,36 @@
                                             
 
                                                 
-                                                                    <p><del>暂停十月，所有关于你的回忆，都让它留在十月</del></p>
-<h1 id="！！更新博客咯！！"><a href="#！！更新博客咯！！" class="headerlink" title="！！更新博客咯！！"></a>！！更新博客咯！！</h1><p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=791032506,3193078771&fm=26&gp=0.jpg" alt="来了！来了！"></p>
-<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>在平时的开发过程中，我们会遇到一些特殊的应用场景，如果你想要在执行某种操作之前或者之后你能够得到通知，并对其进行一些你想要的操作时，你就可以用Django中的信号（signals）。Django 提供一个“信号分发器”，允许解耦的应用在框架的其它地方发生操作时会被通知到，也就是说在特定事件发生时，可以发送一个信号去通知所有注册了这个信号的回调，在回调里进行想要的操作处理。</p>
-<a id="more"></a>
-<h3 id="使用方法图例"><a href="#使用方法图例" class="headerlink" title="使用方法图例"></a>使用方法图例</h3><p>下面图例对具体的某个数据表进行监听，在请求前（pre_save）请求后（post_save），来发送信号。<br>@receiver 为连接接收器函数。<br><img src="20180625181926501.jpg" alt="示例"></p>
-<h3 id="一-相关参数表"><a href="#一-相关参数表" class="headerlink" title="一.相关参数表"></a>一.相关参数表</h3><p>Django内置了对数据表，migrate命令，url请求相关（request/response），使用test测试，连接数据库五大类信号。</p>
-<pre><code> 1 Model signals
-
- 2 pre_init # model执行构造方法前，触发
-
- 3 post_init# model执行构造方法后，触发
-
- 4 pre_save # model执行save对象保存前，触发
-
- 5 post_save# model执行save对象保存前，触发
-
- 6 pre_delete   # model执行delete对象删除前，触发
-
- 7 post_delete  # model执行delete对象删除前，触发
-
- 8 m2m_changed  # model使用多对多字段操作第三张表前后，触发
-
- 9 class_prepared   # 程序启动时，检测已注册的model类，对每个类，触发
-
-10 
-
-11 Management signals
-
-12 pre_migrate  # 执行migrate前，触发
-
-13 post_migrate # 执行migrate后，触发
-
-14 
-
-15 Request/response signals
-
-16 request_started  # 请求到来前，触发
-
-17 request_finished # 请求结束后，触发
-
-18 got_request_exception# 请求异常后，触发
-
-19 
-
-20 Test signals
-
-21 setting_changed  # 使用test测试修改配置文件，触发
-
-22 template_rendered# 使用test测试渲染模板时，触发
-
-23 
-
-24 Database Wrappers
-
-25 connection_created   # 创建数据库连接时，触发</code></pre>
+                                                                    <h2 id="Django中使用Mongodb"><a href="#Django中使用Mongodb" class="headerlink" title="Django中使用Mongodb"></a>Django中使用Mongodb</h2><p><a target="_blank" rel="noopener" href="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180124%2F6dbabb3523f94e7d8bcb024f6446bf34.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612253588&t=54ffb5ee2b94825d8aff2bd943a37ed5" title="2021">https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180124%2F6dbabb3523f94e7d8bcb024f6446bf34.gif&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1612253588&amp;t=54ffb5ee2b94825d8aff2bd943a37ed5</a></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Mongodb   数据库 C++ 编写， 基于分布式文件存储系统得开源数据库系统。<br>将数据存储为一个文档，数据结构由键值（key =&gt; value） 组成。</p>
+<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><p>1、面向文档存储得数据库，操作起来简单容易。</p>
+<p>2、添加索引</p>
+<p>3、 支持语言： python 、 ruby、java、c++等多种语言</p>
+<h3 id="Mongodb-概念解析"><a href="#Mongodb-概念解析" class="headerlink" title="Mongodb 概念解析"></a>Mongodb 概念解析</h3><p>Database  -   数据库 </p>
+<p>collection  -   数据库表/集合</p>
+<p>Document   -  数据记录行/ 文档</p>
+<p>Field    -    数据字段/域</p>
+<p>Index   - 索引</p>
+<p>Primary key  - 主键、MongoDB 自动将_id 字段设置为主键</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="1.jpg" alt="概念"></h2><h3 id="安装Mongodb"><a href="#安装Mongodb" class="headerlink" title="安装Mongodb"></a>安装Mongodb</h3><p>本次测试使用了 Contos7 安装了Docker ，借用Docker搭建了 Mongodb。</p>
+<p>docker搭建mongodb ：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/clwycwxw/p/14030934.html">https://www.cnblogs.com/clwycwxw/p/14030934.html</a></p>
+<p>下载/安装 Studio 3T软件，官方下载网站：<a target="_blank" rel="noopener" href="https://mongoing.com/archives/24894">https://mongoing.com/archives/24894</a></p>
+<h3 id="创建-启动Django项目"><a href="#创建-启动Django项目" class="headerlink" title="创建/启动Django项目"></a>创建/启动Django项目</h3><p>地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/sky-k/p/10943136.html">https://www.cnblogs.com/sky-k/p/10943136.html</a></p>
+<h1 id="Django项目配置-Mongodb数据库-测试"><a href="#Django项目配置-Mongodb数据库-测试" class="headerlink" title="Django项目配置 Mongodb数据库 / 测试"></a>Django项目配置 Mongodb数据库 / 测试</h1><p>第一步：在settings.py中配置mongodb和mysql,配置如下(可以同时使用mysql和mongodb):</p>
+<p><img src="2.jpg" alt="概念1"></p>
+<p>第二步：向mongodb中插入数据<br>1.插入json类型数据</p>
+<p><img src="3.jpg" alt="概念2"></p>
+<p>第三步：测试代码，各种操作</p>
+<p><img src="4.jpg" alt="概念3"></p>
 
                                                                         
                                     </div>
                                     <footer class="article-footer">
-                                        <a data-url="http://example.com/2020/10/30/Django%E4%B8%AD%E4%BF%A1%E5%8F%B7signals%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" data-id="ckgvzi1390000s8vv2xto0mnc" class="article-share-link">
+                                        <a data-url="http://example.com/2020/12/15/%E5%9C%A8django%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%92%8Cmongodb/" data-id="ckjgwdtcb0000dcvv058rdouk" class="article-share-link">
                                             Share
                                         </a>
                                         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
                                     </footer>
 
@@ -149,19 +115,10 @@
         
   <nav class="article-nav">
     
-      <a href="/2020/12/15/%E5%9C%A8django%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%92%8Cmongodb/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer</strong>
-        <div class="article-nav-title">
-          
-            Django中使用Mongodb-❤
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/10/23/%E6%88%91%E8%A6%81%E5%AD%A6%E4%BC%9AShell%E8%84%9A%E6%9C%AC%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="article-nav-link">
+      <a href="/2020/10/30/Django%E4%B8%AD%E4%BF%A1%E5%8F%B7signals%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="article-nav-link">
         <strong class="article-nav-caption">Older</strong>
-        <div class="article-nav-title">我要学会Shell脚本（一）---基础语法</div>
+        <div class="article-nav-title">Django中信号signals简单使用-❤</div>
       </a>
     
   </nav>

@@ -64,6 +64,84 @@
       <h1 class="page-type-title"></h1>
       
         
+          <article id="post-在django中连接mysql和mongodb" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/12/15/%E5%9C%A8django%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%92%8Cmongodb/">Django中使用Mongodb-❤</a>
+    </h2>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/2020/12/15/%E5%9C%A8django%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%92%8Cmongodb/" class="article-date">
+  <time datetime="2020-12-15T06:21:31.000Z" itemprop="datePublished">2020-12-15</time>
+</a>
+                            
+                    </div>
+                    
+
+                        
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <h2 id="Django中使用Mongodb"><a href="#Django中使用Mongodb" class="headerlink" title="Django中使用Mongodb"></a>Django中使用Mongodb</h2><p><a target="_blank" rel="noopener" href="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180124%2F6dbabb3523f94e7d8bcb024f6446bf34.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612253588&t=54ffb5ee2b94825d8aff2bd943a37ed5" title="2021">https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180124%2F6dbabb3523f94e7d8bcb024f6446bf34.gif&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1612253588&amp;t=54ffb5ee2b94825d8aff2bd943a37ed5</a></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Mongodb   数据库 C++ 编写， 基于分布式文件存储系统得开源数据库系统。<br>将数据存储为一个文档，数据结构由键值（key =&gt; value） 组成。</p>
+<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><p>1、面向文档存储得数据库，操作起来简单容易。</p>
+<p>2、添加索引</p>
+<p>3、 支持语言： python 、 ruby、java、c++等多种语言</p>
+<h3 id="Mongodb-概念解析"><a href="#Mongodb-概念解析" class="headerlink" title="Mongodb 概念解析"></a>Mongodb 概念解析</h3><p>Database  -   数据库 </p>
+<p>collection  -   数据库表/集合</p>
+<p>Document   -  数据记录行/ 文档</p>
+<p>Field    -    数据字段/域</p>
+<p>Index   - 索引</p>
+<p>Primary key  - 主键、MongoDB 自动将_id 字段设置为主键</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="1.jpg" alt="概念"></h2><h3 id="安装Mongodb"><a href="#安装Mongodb" class="headerlink" title="安装Mongodb"></a>安装Mongodb</h3><p>本次测试使用了 Contos7 安装了Docker ，借用Docker搭建了 Mongodb。</p>
+<p>docker搭建mongodb ：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/clwycwxw/p/14030934.html">https://www.cnblogs.com/clwycwxw/p/14030934.html</a></p>
+<p>下载/安装 Studio 3T软件，官方下载网站：<a target="_blank" rel="noopener" href="https://mongoing.com/archives/24894">https://mongoing.com/archives/24894</a></p>
+<h3 id="创建-启动Django项目"><a href="#创建-启动Django项目" class="headerlink" title="创建/启动Django项目"></a>创建/启动Django项目</h3><p>地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/sky-k/p/10943136.html">https://www.cnblogs.com/sky-k/p/10943136.html</a></p>
+<h1 id="Django项目配置-Mongodb数据库-测试"><a href="#Django项目配置-Mongodb数据库-测试" class="headerlink" title="Django项目配置 Mongodb数据库 / 测试"></a>Django项目配置 Mongodb数据库 / 测试</h1><p>第一步：在settings.py中配置mongodb和mysql,配置如下(可以同时使用mysql和mongodb):</p>
+<p><img src="2.jpg" alt="概念1"></p>
+<p>第二步：向mongodb中插入数据<br>1.插入json类型数据</p>
+<p><img src="3.jpg" alt="概念2"></p>
+<p>第三步：测试代码，各种操作</p>
+<p><img src="4.jpg" alt="概念3"></p>
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://example.com/2020/12/15/%E5%9C%A8django%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%92%8Cmongodb/" data-id="ckjgwdtcb0000dcvv058rdouk" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+                                    </footer>
+
+    </div>
+
+    
+
+                
+
+</article>
+        
           <article id="post-Django中信号signals简单使用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
     <div class="article-inner">
@@ -273,7 +351,7 @@
 </ul>
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 徐昊的博客园-🛴</li>
+      <li>&copy; 2021 徐昊的博客园-🛴</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
